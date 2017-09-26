@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: List
+items:
+- apiVersion: v1
+  kind: ConfigMap
+  metadata:
+    name: app-config
+  data:
+    app-config.yml: |-
+      message : "Hello, %s from a ConfigMap !"
+      level : INFO
+- apiVersion: v1
+  kind: RoleBinding
+  metadata:
+    name: my-role-binding
+  subjects:
+  - kind: ServiceAccount
+    name: default
+  roleRef:
+    name: view
